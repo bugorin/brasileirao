@@ -14,9 +14,14 @@ public class TimeController {
         this.timeRepository = timeRepository;
     }
 
-    @GetMapping("/times")
-    public ResponseEntity todosTimes() {
-        return ResponseEntity.ok(timeRepository.findAll());
+    @GetMapping("/times/{nome}")
+    public ResponseEntity todosTimes(@PathVariable("nome") String nome) {
+        return ResponseEntity.ok(timeRepository.findAllByNome(new NomeOnly(1l, nome)));
+    }
+
+    @GetMapping("/time/{estado}")
+    public ResponseEntity todosTimes(@PathVariable("estado") Estado estado) {
+        return ResponseEntity.ok(timeRepository.findAllByEstado(estado));
     }
 
 }
