@@ -16,7 +16,7 @@ public class TimeController {
 
     @GetMapping("/times")
     public ResponseEntity todosTimes() {
-        return ResponseEntity.ok(timeRepository.findAllBy());
+        return ResponseEntity.ok(timeRepository.findAll());
     }
 
 }
